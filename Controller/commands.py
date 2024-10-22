@@ -48,6 +48,7 @@ def show(txt):
                 print("Нет такой даты")
         else:
             print("Журнал заметок пустой!")
+            
 def del_notes():
     id = input("Введите ID удаляемой заметки: ")
     array_notes = lF.read_file()
