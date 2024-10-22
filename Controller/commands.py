@@ -63,3 +63,22 @@ def del_notes():
         print("Заметка с id: ", id, " успешно удалена!")
     else:
         print("нет такого id")
+
+def change_note():
+    id = input("Введите ID изменяемой заметки: ")
+    array_notes = lF.read_file()
+    flag = True
+    array_notes_new = []
+    for i in array_notes:
+        if id == Note.Note.get_id(i):
+            i.title = input("измените  заголовок:\n")
+            i.body = input("измените  описание:\n")
+            Note.Note.set_date(i)
+            logic = False
+        array_notes_new.append(i)
+
+    if flag:
+        wF.write_file(array_notes_new, 'a')
+        print("Заметка с id: ", id, " успешно изменена!")
+    else:
+        print("нет такого id")
